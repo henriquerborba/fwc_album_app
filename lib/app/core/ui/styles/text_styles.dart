@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'colors_app.dart';
 
@@ -66,6 +66,11 @@ class TextStyles {
 
   TextStyle get textSecundadryFontExtraBolPrimaryColor =>
       textSecundaryFontExtraBold.copyWith(color: ColorsApp.i.primary);
+
+  TextStyle get titleWhite => textPrimaryFontBold.copyWith(
+        color: Colors.white,
+        fontSize: 22,
+      );
 }
 
 extension TextStylesExtension on BuildContext {
