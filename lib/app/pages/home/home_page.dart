@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,7 +10,17 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
-      body: Container(),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Logout'),
+          onPressed: () async {
+            final sp = await SharedPreferences.getInstance();
+            sp.clear();
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil('/', (route) => false);
+          },
+        ),
+      ),
     );
   }
 }

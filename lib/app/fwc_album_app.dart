@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:fwc_album_app/app/core/rest/custom_dio.dart';
 import 'package:fwc_album_app/app/pages/auth/login/login_page.dart';
+import 'package:fwc_album_app/app/pages/auth/login/login_router.dart';
 import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter.dart';
 import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter_impl.dart';
 import 'package:fwc_album_app/app/pages/auth/register/register_page.dart';
@@ -29,8 +30,8 @@ class FwcAlbumApp extends StatelessWidget {
         theme: ThemeConfig.theme,
         routes: {
           '/': (context) => const SplashRoute(),
-          '/auth/login': (context) => const LoginPage(),
-          '/auth/register': (context) => RegisterRoute(),
+          '/auth/login': (context) => const LoginRouter(),
+          '/auth/register': (context) => const RegisterRoute(),
           '/home': (context) => const HomePage(),
         },
       ),
