@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:fwc_album_app/app/core/rest/custom_dio.dart';
 import 'package:fwc_album_app/app/pages/auth/login/login_page.dart';
+import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter.dart';
+import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter_impl.dart';
 import 'package:fwc_album_app/app/pages/auth/register/register_page.dart';
+import 'package:fwc_album_app/app/pages/auth/register/register_route.dart';
 import 'package:fwc_album_app/app/pages/home/home_page.dart';
 import 'package:fwc_album_app/app/pages/splash/splash_route.dart';
 import 'package:fwc_album_app/app/repository/auth/auth_repository.dart';
@@ -18,7 +21,7 @@ class FwcAlbumApp extends StatelessWidget {
     return FlutterGetItApplicationBinding(
       bindingsBuilder: () => [
         Bind.lazySingleton<CustomDio>((i) => CustomDio()),
-        Bind.lazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i()))
+        Bind.lazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i())),
       ],
       child: MaterialApp(
         title: 'Fifa World Cup Album ',
@@ -27,7 +30,7 @@ class FwcAlbumApp extends StatelessWidget {
         routes: {
           '/': (context) => const SplashRoute(),
           '/auth/login': (context) => const LoginPage(),
-          '/auth/register': (context) => const RegisterPage(),
+          '/auth/register': (context) => RegisterRoute(),
           '/home': (context) => const HomePage(),
         },
       ),
