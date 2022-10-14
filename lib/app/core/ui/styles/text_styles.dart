@@ -71,6 +71,11 @@ class TextStyles {
         color: Colors.white,
         fontSize: 22,
       );
+
+  TextStyle get titleBlack => textPrimaryFontBold.copyWith(
+        color: Colors.black,
+        fontSize: 22,
+      );
 }
 
 extension TextStylesExtension on BuildContext {

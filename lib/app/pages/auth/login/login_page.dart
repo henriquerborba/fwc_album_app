@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
@@ -103,6 +104,9 @@ class _LoginPageState extends State<LoginPage> {
                                 .copyWith(
                               color: context.colors.yellow,
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => Navigator.of(context)
+                                  .pushNamed('/auth/register'),
                           ),
                         ],
                       ),
