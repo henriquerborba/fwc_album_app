@@ -37,7 +37,7 @@ class FwcAlbumApp extends StatelessWidget {
           '/auth/login': (context) => const LoginRoute(),
           '/auth/register': (context) => const RegisterRoute(),
           '/home': (context) => const HomeRoute(),
-          '/my-stickers': (context) => const MyStrickersPage(),
+          '/my-stickers': (context) => const MyStickersPage(),
         },
       ),
     );
