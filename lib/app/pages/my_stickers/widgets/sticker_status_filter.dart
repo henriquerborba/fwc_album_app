@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
+import 'package:fwc_album_app/app/pages/my_stickers/presenter/my_stickers_presenter.dart';
 
 import '../../../core/ui/widgets/button.dart';
 
@@ -15,6 +17,8 @@ class StickerStatusFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final presenter = context.get<MyStickersPresenter>();
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -24,25 +28,45 @@ class StickerStatusFilter extends StatelessWidget {
         children: [
           Button(
             width: MediaQuery.of(context).size.width * .3,
-            onPressed: () {},
+            onPressed: () {
+              presenter.statusFilter('all');
+            },
             label: 'Todas',
-            labelStyle: context.textStyles.textSecundaryFontMedium
-                .copyWith(color: context.colors.primary),
-            style: context.buttonStyles.yellowButton,
+            labelStyle: filterSlected == 'all'
+                ? context.textStyles.textSecundaryFontMedium
+                    .copyWith(color: context.colors.primary)
+                : context.textStyles.textSecundaryFontMedium,
+            style: filterSlected == 'all'
+                ? context.buttonStyles.yellowButton
+                : context.buttonStyles.primaryButton,
           ),
           Button(
             width: MediaQuery.of(context).size.width * .3,
-            onPressed: () {},
+            onPressed: () {
+              presenter.statusFilter('missing');
+            },
             label: 'Faltando',
-            labelStyle: context.textStyles.textSecundaryFontMedium,
-            style: context.buttonStyles.primaryButton,
+            labelStyle: filterSlected == 'missing'
+                ? context.textStyles.textSecundaryFontMedium
+                    .copyWith(color: context.colors.primary)
+                : context.textStyles.textSecundaryFontMedium,
+            style: filterSlected == 'missing'
+                ? context.buttonStyles.yellowButton
+                : context.buttonStyles.primaryButton,
           ),
           Button(
             width: MediaQuery.of(context).size.width * .3,
-            onPressed: () {},
+            onPressed: () {
+              presenter.statusFilter('repeated');
+            },
             label: 'Repetidas',
-            labelStyle: context.textStyles.textSecundaryFontMedium,
-            style: context.buttonStyles.primaryButton,
+            labelStyle: filterSlected == 'repeated'
+                ? context.textStyles.textSecundaryFontMedium
+                    .copyWith(color: context.colors.primary)
+                : context.textStyles.textSecundaryFontMedium,
+            style: filterSlected == 'repeated'
+                ? context.buttonStyles.yellowButton
+                : context.buttonStyles.primaryButton,
           ),
         ],
       ),

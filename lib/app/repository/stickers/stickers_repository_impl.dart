@@ -19,7 +19,7 @@ class StickersRepositoryImpl implements StickersRepository {
       final result = await dio.auth().get('/api/countries');
 
       return result.data
-          .map<GroupsStickers>((e) => GroupsStickers.fromJson(e))
+          .map<GroupsStickers>((e) => GroupsStickers.fromMap(e))
           .toList();
     } on DioError catch (e, s) {
       log('Erro ao buscar album', error: e, stackTrace: s);
