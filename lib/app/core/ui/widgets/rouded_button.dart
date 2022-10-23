@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../styles/colors_app.dart';
 
-class RoudedButton extends StatelessWidget {
+class RoundedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData icon;
 
-  const RoudedButton({
+  const RoundedButton({
     super.key,
     required this.onPressed,
     required this.icon,
