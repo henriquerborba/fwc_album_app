@@ -24,7 +24,7 @@ class UserModel {
     required this.id,
     required this.name,
     required this.email,
-    required this.totalAlbum,
+    required this.totalAlbum, 
     required this.totalStickers,
     required this.totalDuplicates,
     required this.totalComplete,
